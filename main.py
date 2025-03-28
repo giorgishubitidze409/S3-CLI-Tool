@@ -31,9 +31,8 @@ def list_buckets():
 def create_bucket(bucket_name):
     """Create an S3 bucket"""
     s3 = init_client()
-    region = os.getenv("AWS_REGION")  # Fetch region from environment variables
+    region = os.getenv("AWS_REGION")
 
-    # If the region is us-east-1, no need to specify LocationConstraint
     if region == "us-east-1":
         s3.create_bucket(Bucket=bucket_name)
     else:
